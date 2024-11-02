@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>墨影飞舟</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="backgroundCanvas"></canvas>
+        <canvas id="gameCanvas"></canvas>
+        <canvas id="effectCanvas"></canvas>
+        <div class="audio-controls">
+            <button id="musicToggle" class="control-btn">🎵</button>
+        </div>
+        <div class="controls">
+            <div class="d-pad">
+                <button id="upBtn">↑</button>
+                <button id="downBtn">↓</button>
+                <button id="leftBtn">←</button>
+                <button id="rightBtn">→</button>
+            </div>
+        </div>
+        <button id="shootBtn" class="shoot-btn">✦</button>
+        <div class="hud">
+            <div class="score">
+                分数：<span id="scoreValue">0</span>
+            </div>
+            <div class="health">
+                生命值：
+                <div class="health-points">
+                    <div class="health-point"></div>
+                    <div class="health-point"></div>
+                    <div class="health-point"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 菜单界面 -->
+        <div id="menuScreen" class="menu-screen">
+            <h1 class="game-title">墨影飞舟</h1>
+            <div class="menu-buttons">
+                <button id="startBtn" class="menu-btn">开始游戏</button>
+                <button id="leaderboardBtn" class="menu-btn">排行榜</button>
+                <button id="helpBtn" class="menu-btn">游戏说明</button>
+                <div class="volume-control menu-volume">
+                    <button id="menuVolumeDown" class="volume-btn">-</button>
+                    <span id="menuVolumeDisplay">30%</span>
+                    <button id="menuVolumeUp" class="volume-btn">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 暂停界面 -->
+        <div id="pauseScreen" class="menu-screen hidden">
+            <h2>游戏暂停</h2>
+            <div class="menu-buttons">
+                <button id="resumeBtn" class="menu-btn">继续游戏</button>
+                <button id="restartBtn" class="menu-btn">重新开始</button>
+                <button id="quitBtn" class="menu-btn">返回菜单</button>
+            </div>
+        </div>
+        
+        <!-- 游戏说明界面 -->
+        <div id="helpScreen" class="menu-screen hidden">
+            <h2>游戏说明</h2>
+            <div class="help-content">
+                <p>使用方向键或屏幕按钮控制小船移动</p>
+                <p>按空格键或点击发射按钮发射水墨弹</p>
+                <p>击中普通障碍物得100分</p>
+                <p>碰到乌龟型障碍物进入无敌状态</p>
+                <p>无敌状态下碰撞普通障碍物得200分</p>
+                <p>无敌状态下按发射键可以加速冲撞</p>
+                <p>无敌状态下冲撞普通障碍物得500分</p>
+                <p>注意保护生命值，撞到障碍物会失去一点生命</p>
+            </div>
+            <button id="backBtn" class="menu-btn">返回</button>
+        </div>
+        
+        <!-- 排行榜界面 -->
+        <div id="leaderboardScreen" class="menu-screen hidden">
+            <h2>历史最高分</h2>
+            <div class="leaderboard-content">
+                <div id="leaderboardList"></div>
+            </div>
+            <div class="leaderboard-buttons">
+                <button id="clearLeaderboardBtn" class="menu-btn">清除记录</button>
+                <button id="leaderboardBackBtn" class="menu-btn">返回</button>
+            </div>
+        </div>
+        
+        <!-- 暂停按钮 -->
+        <button id="pauseBtn" class="control-btn hidden">
+            ⏸️
+        </button>
+    </div>
+    <script src="audio.js"></script>
+    <script src="background.js"></script>
+    <script src="animations.js"></script>
+    <script src="effects.js"></script>
+    <script src="menu.js"></script>
+    <script src="game.js"></script>
+</body>
+</html> 
